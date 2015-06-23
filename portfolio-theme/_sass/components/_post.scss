@@ -1,0 +1,48 @@
+.post-list {
+	@extend %clearfix;
+	list-style:none;
+}
+.post {
+	float:left;
+	width:50%;
+	padding:0 3em 1em;
+}
+.post-tags {
+	min-height:50px;
+	text-align:center;
+
+	li {
+		display:inline;
+	}
+}
+
+.post-featured {
+	float:none;
+	margin:0 auto;
+}
+.post-read-more-link {
+	text-align:center;
+}
+
+// single post page
+
+.post-header {
+	text-align:center;
+}
+.post-title {
+	margin:0;
+}
+.post-meta {
+	color:$blue-color;
+	font-size:$h4-font-size;
+}
+.post-body {
+	width:90%;
+	max-width:40em;
+	margin:$h2-font-size auto;
+
+	h1, h2, h3, h4 {
+		max-width:80%;
+		margin:$h2-font-size auto;
+	}
+}

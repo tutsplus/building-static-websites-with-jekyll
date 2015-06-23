@@ -1,0 +1,47 @@
+---
+layout: default
+---
+
+<div class="home">
+
+	<section class="site-section">
+      <div class="wrapper">
+			<h1 class="page-heading">featured article</h1>
+			{% assign count = 0 %}
+			{% for post in site.categories['blog'] reverse %}
+				{% if post.featured == true and count < 1 %}
+					<div class="post post-featured">
+						{% include post.html %}
+					</div>
+					{% assign count = count | plus: 1 %}
+				{% endif %}
+			{% endfor %}
+		</div>
+	</section>
+
+	<section class="site-section">
+		<h1>featured projects</h1>
+		<ul class="project-list">
+			{% for project in site.categories['project'] | limit: 3 %}
+				{% include project.html %}
+			{% endfor %}
+		</ul>
+	</section>
+
+	<section class="site-section site-section-last">
+		<div class="wrapper">
+			<h1 class="page-heading">latest articles</h1>
+			<ul class="post-list">
+				{% for post in site.categories['blog'] reversed | limit: 5 %}
+					{% if post.featured %}
+						{% continue %}
+					{% endif %}
+					<li class="post">
+						{% include post.html %}
+					</li>
+				{% endfor %}
+			</ul>
+		<div class="wrapper">
+	</section>
+
+</div>

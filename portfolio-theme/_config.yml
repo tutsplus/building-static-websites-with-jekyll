@@ -1,0 +1,25 @@
+# Site settings
+title: Designer portfolio
+email: mail@guyroutledge.co.uk
+description: > # this means to ignore newlines until "baseurl:"
+  Freelance web designer and developer, specialising in Jekyll, HTML, CSS and Javascript
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://tutsplus.com" # the base hostname & protocol for your site
+
+twitter_username: guyroutledge
+github_username:  guyroutledge
+google_username: guyroutledge
+
+permalink: /:categories/:title
+links:
+    - title: about
+      url: /about
+    - title: work
+      url: /work
+    - title: articles
+      url: /articles
+    - title: hire me
+      url: /hire-me
+
+# Build settings
+markdown: kramdown

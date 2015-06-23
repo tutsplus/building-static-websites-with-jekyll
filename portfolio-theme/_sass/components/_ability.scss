@@ -1,0 +1,82 @@
+.abilities {
+	list-style:none;
+	margin:1.5em 0;
+
+	li {
+		position:relative;
+		margin-bottom:0.5em;
+		padding:0.5em 1em;
+		color:#fff;
+	}
+}
+%ability {
+
+	&:before {
+		position:absolute;
+		top:0.5em;
+
+		margin-left:-2em;
+		text-align:right;
+		color:#fff;
+	}
+	&:after {
+		content:"";
+		position:absolute;
+		top:0;
+		left:0;
+
+		height:100%;
+		background:$brand-color;
+
+		z-index:-1;
+	}
+}
+
+
+$abilities: (
+	'photoshop': 95,
+	'illustrator': 95,
+	'ui': 95,
+	'html': 90,
+	'css': 85,
+	'jekyll': 100,
+	'git': 65
+	);
+@each $ability, $score in $abilities {
+
+	@-webkit-keyframes show-ability-#{$ability} {
+		from { width:0; }
+		to   { width:$score * 1%; }
+	}
+	@-moz-keyframes show-ability-#{$ability} {
+		from { width:0; }
+		to   { width:$score * 1%; }
+	}
+	@-o-keyframes show-ability-#{$ability} {
+		from { width:0; }
+		to   { width:$score * 1%; }
+	}
+	@keyframes show-ability-#{$ability} {
+		from { width:0; }
+		to   { width:$score * 1%; }
+	}
+
+	.ability-#{$ability} {
+		@extend %ability;
+
+		&:before {
+			content: "#{$score}";
+			left:$score * 1%;
+		}
+		&:after {
+			-webkit-animation: show-ability-#{$ability} ease-in-out 1s 2s 1; /* Safari 4+ */
+			-webkit-animation-fill-mode:forwards;
+			   -moz-animation: show-ability-#{$ability} ease-in-out 1s 2s 1; /* Fx 5+ */
+			   -moz-animation-fill-mode:forwards;
+			     -o-animation: show-ability-#{$ability} ease-in-out 1s 2s 1; /* Opera 12+ */
+			     -o-animation-fill-mode:forwards;
+			        animation: show-ability-#{$ability} ease-in-out 1s 2s 1; /* IE 10+ */
+			        animation-fill-mode:forwards;
+		}
+	}
+}
